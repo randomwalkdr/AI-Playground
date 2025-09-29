@@ -1,0 +1,29 @@
+
+TARA Framework Analysis Report
+Generated: 20250929_034154
+
+EXECUTIVE SUMMARY
+================
+Total Assets: 4
+Total Threats: 12
+Total Risks: 12
+Attack Trees: 3
+Recommendations: 6
+
+HIGH-RISK ASSETS
+================
+- Communication Buses (Value: 7.0)
+- Communication Stacks (Value: 7.0)
+- Communication Functions (Value: 7.0)
+
+CRITICAL RISKS
+==============
+
+
+TOP RECOMMENDATIONS
+==================
+- Secure Communication Buses (Priority: high, Cost: $50,000)
+- Secure Communication Stacks (Priority: high, Cost: $50,000)
+- Secure Communication Functions (Priority: high, Cost: $50,000)
+- Protect against compromise_communication buses (Priority: medium, Cost: $25,000)
+- Protect against compromise_communication stacks (Priority: medium, Cost: $25,000)

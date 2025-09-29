@@ -1,0 +1,28 @@
+{
+  "analysis_metadata": {},
+  "assets": [
+    {
+      "name": "Test Asset",
+      "type": "software",
+      "value": 5.0,
+      "location": "test_system",
+      "impact_safety": 0.0,
+      "impact_financial": 0.0,
+      "impact_operational": 0.0,
+      "impact_privacy": 0.0
+    }
+  ],
+  "threats": [
+    {
+      "name": "Test Threat",
+      "type": "malware",
+      "likelihood": 0.5,
+      "impact": 5.0,
+      "description": "Test threat for export"
+    }
+  ],
+  "risks": [],
+  "attack_trees": [],
+  "game_theory_results": [],
+  "recommendations": []
+}
