@@ -1,0 +1,349 @@
+{
+  "analysis_metadata": {
+    "scope": {
+      "boundaries": "telematics_ecu",
+      "focus_areas": [
+        "communication",
+        "data_storage",
+        "authentication"
+      ],
+      "exclusions": [
+        "mechanical_components"
+      ]
+    },
+    "analysis_type": "comprehensive",
+    "timestamp": "2025-09-29T03:41:54.937488",
+    "framework_version": "1.0"
+  },
+  "assets": [
+    {
+      "name": "Communication Buses",
+      "type": "physical",
+      "value": 7.0,
+      "location": "telematics_ecu",
+      "impact_safety": 3.0,
+      "impact_financial": 4.0,
+      "impact_operational": 6.0,
+      "impact_privacy": 2.0
+    },
+    {
+      "name": "Communication Stacks",
+      "type": "software",
+      "value": 7.0,
+      "location": "telematics_ecu",
+      "impact_safety": 3.0,
+      "impact_financial": 4.0,
+      "impact_operational": 6.0,
+      "impact_privacy": 2.0
+    },
+    {
+      "name": "Communication Functions",
+      "type": "function",
+      "value": 7.0,
+      "location": "telematics_ecu",
+      "impact_safety": 3.0,
+      "impact_financial": 4.0,
+      "impact_operational": 6.0,
+      "impact_privacy": 2.0
+    },
+    {
+      "name": "Authentication Functions",
+      "type": "function",
+      "value": 5.0,
+      "location": "telematics_ecu",
+      "impact_safety": 3.0,
+      "impact_financial": 4.0,
+      "impact_operational": 3.0,
+      "impact_privacy": 2.0
+    }
+  ],
+  "threats": [
+    {
+      "name": "Script Kiddies targeting Communication Buses",
+      "type": "physical_access",
+      "likelihood": 0.1428,
+      "impact": 10.0,
+      "description": "script kiddies attempting to compromise Communication Buses through physical_access"
+    },
+    {
+      "name": "Organized Crime targeting Communication Buses",
+      "type": "physical_access",
+      "likelihood": 0.255,
+      "impact": 10.0,
+      "description": "organized crime attempting to compromise Communication Buses through physical_access"
+    },
+    {
+      "name": "State Actors targeting Communication Buses",
+      "type": "physical_access",
+      "likelihood": 0.3978,
+      "impact": 10.0,
+      "description": "state actors attempting to compromise Communication Buses through physical_access"
+    },
+    {
+      "name": "Script Kiddies targeting Communication Stacks",
+      "type": "remote_exploitation",
+      "likelihood": 0.1428,
+      "impact": 10.0,
+      "description": "script kiddies attempting to compromise Communication Stacks through remote_exploitation"
+    },
+    {
+      "name": "Organized Crime targeting Communication Stacks",
+      "type": "remote_exploitation",
+      "likelihood": 0.255,
+      "impact": 10.0,
+      "description": "organized crime attempting to compromise Communication Stacks through remote_exploitation"
+    },
+    {
+      "name": "State Actors targeting Communication Stacks",
+      "type": "remote_exploitation",
+      "likelihood": 0.3978,
+      "impact": 10.0,
+      "description": "state actors attempting to compromise Communication Stacks through remote_exploitation"
+    },
+    {
+      "name": "Script Kiddies targeting Communication Functions",
+      "type": "social_engineering",
+      "likelihood": 0.1428,
+      "impact": 10.0,
+      "description": "script kiddies attempting to compromise Communication Functions through social_engineering"
+    },
+    {
+      "name": "Organized Crime targeting Communication Functions",
+      "type": "social_engineering",
+      "likelihood": 0.255,
+      "impact": 10.0,
+      "description": "organized crime attempting to compromise Communication Functions through social_engineering"
+    },
+    {
+      "name": "State Actors targeting Communication Functions",
+      "type": "social_engineering",
+      "likelihood": 0.3978,
+      "impact": 10.0,
+      "description": "state actors attempting to compromise Communication Functions through social_engineering"
+    },
+    {
+      "name": "Script Kiddies targeting Authentication Functions",
+      "type": "social_engineering",
+      "likelihood": 0.126,
+      "impact": 10.0,
+      "description": "script kiddies attempting to compromise Authentication Functions through social_engineering"
+    },
+    {
+      "name": "Organized Crime targeting Authentication Functions",
+      "type": "social_engineering",
+      "likelihood": 0.22499999999999998,
+      "impact": 10.0,
+      "description": "organized crime attempting to compromise Authentication Functions through social_engineering"
+    },
+    {
+      "name": "State Actors targeting Authentication Functions",
+      "type": "social_engineering",
+      "likelihood": 0.351,
+      "impact": 10.0,
+      "description": "state actors attempting to compromise Authentication Functions through social_engineering"
+    }
+  ],
+  "risks": [
+    {
+      "threat_name": "Script Kiddies targeting Communication Buses",
+      "risk_level": "low",
+      "risk_score": 1.4280000000000002,
+      "likelihood": 0.1428,
+      "impact": 10.0,
+      "justification": "Risk score: 1.43 (likelihood: 0.14 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "Organized Crime targeting Communication Buses",
+      "risk_level": "low",
+      "risk_score": 2.55,
+      "likelihood": 0.255,
+      "impact": 10.0,
+      "justification": "Risk score: 2.55 (likelihood: 0.26 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "State Actors targeting Communication Buses",
+      "risk_level": "medium",
+      "risk_score": 3.9779999999999998,
+      "likelihood": 0.3978,
+      "impact": 10.0,
+      "justification": "Risk score: 3.98 (likelihood: 0.40 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "Script Kiddies targeting Communication Stacks",
+      "risk_level": "low",
+      "risk_score": 1.4280000000000002,
+      "likelihood": 0.1428,
+      "impact": 10.0,
+      "justification": "Risk score: 1.43 (likelihood: 0.14 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "Organized Crime targeting Communication Stacks",
+      "risk_level": "low",
+      "risk_score": 2.55,
+      "likelihood": 0.255,
+      "impact": 10.0,
+      "justification": "Risk score: 2.55 (likelihood: 0.26 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "State Actors targeting Communication Stacks",
+      "risk_level": "medium",
+      "risk_score": 3.9779999999999998,
+      "likelihood": 0.3978,
+      "impact": 10.0,
+      "justification": "Risk score: 3.98 (likelihood: 0.40 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "Script Kiddies targeting Communication Functions",
+      "risk_level": "low",
+      "risk_score": 1.4280000000000002,
+      "likelihood": 0.1428,
+      "impact": 10.0,
+      "justification": "Risk score: 1.43 (likelihood: 0.14 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "Organized Crime targeting Communication Functions",
+      "risk_level": "low",
+      "risk_score": 2.55,
+      "likelihood": 0.255,
+      "impact": 10.0,
+      "justification": "Risk score: 2.55 (likelihood: 0.26 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "State Actors targeting Communication Functions",
+      "risk_level": "medium",
+      "risk_score": 3.9779999999999998,
+      "likelihood": 0.3978,
+      "impact": 10.0,
+      "justification": "Risk score: 3.98 (likelihood: 0.40 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "Script Kiddies targeting Authentication Functions",
+      "risk_level": "low",
+      "risk_score": 1.26,
+      "likelihood": 0.126,
+      "impact": 10.0,
+      "justification": "Risk score: 1.26 (likelihood: 0.13 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "Organized Crime targeting Authentication Functions",
+      "risk_level": "low",
+      "risk_score": 2.25,
+      "likelihood": 0.22499999999999998,
+      "impact": 10.0,
+      "justification": "Risk score: 2.25 (likelihood: 0.22 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    },
+    {
+      "threat_name": "State Actors targeting Authentication Functions",
+      "risk_level": "medium",
+      "risk_score": 3.51,
+      "likelihood": 0.351,
+      "impact": 10.0,
+      "justification": "Risk score: 3.51 (likelihood: 0.35 \u00d7 impact: 10.00 \u00d7 severity: 1.00)"
+    }
+  ],
+  "attack_trees": [
+    {
+      "target_asset": "Communication Buses",
+      "threat_scenario": "compromise_communication buses",
+      "total_nodes": 21,
+      "attack_paths": 15,
+      "description": "Attack tree for compromise_communication buses targeting Communication Buses"
+    },
+    {
+      "target_asset": "Communication Stacks",
+      "threat_scenario": "compromise_communication stacks",
+      "total_nodes": 21,
+      "attack_paths": 15,
+      "description": "Attack tree for compromise_communication stacks targeting Communication Stacks"
+    },
+    {
+      "target_asset": "Communication Functions",
+      "threat_scenario": "compromise_communication functions",
+      "total_nodes": 21,
+      "attack_paths": 15,
+      "description": "Attack tree for compromise_communication functions targeting Communication Functions"
+    }
+  ],
+  "game_theory_results": [
+    {
+      "attacker_strategy": "no_attack",
+      "defender_strategy": "deploy_encryption",
+      "attacker_payoff": 0.0,
+      "defender_payoff": 0.0,
+      "attack_success_probability": 0.0,
+      "stability": 1.0
+    },
+    {
+      "attacker_strategy": "no_attack",
+      "defender_strategy": "deploy_encryption",
+      "attacker_payoff": 0.0,
+      "defender_payoff": 0.0,
+      "attack_success_probability": 0.0,
+      "stability": 1.0
+    },
+    {
+      "attacker_strategy": "no_attack",
+      "defender_strategy": "deploy_encryption",
+      "attacker_payoff": 0.0,
+      "defender_payoff": 0.0,
+      "attack_success_probability": 0.0,
+      "stability": 1.0
+    }
+  ],
+  "recommendations": [
+    {
+      "title": "Secure Communication Buses",
+      "priority": "high",
+      "category": "asset_security",
+      "estimated_cost": 50000,
+      "effectiveness_score": 0.8,
+      "implementation_time": "3-6 months",
+      "description": "Implement additional security controls for Communication Buses due to high risk level"
+    },
+    {
+      "title": "Secure Communication Stacks",
+      "priority": "high",
+      "category": "asset_security",
+      "estimated_cost": 50000,
+      "effectiveness_score": 0.8,
+      "implementation_time": "3-6 months",
+      "description": "Implement additional security controls for Communication Stacks due to high risk level"
+    },
+    {
+      "title": "Secure Communication Functions",
+      "priority": "high",
+      "category": "asset_security",
+      "estimated_cost": 50000,
+      "effectiveness_score": 0.8,
+      "implementation_time": "3-6 months",
+      "description": "Implement additional security controls for Communication Functions due to high risk level"
+    },
+    {
+      "title": "Protect against compromise_communication buses",
+      "priority": "medium",
+      "category": "attack_prevention",
+      "estimated_cost": 25000,
+      "effectiveness_score": 0.7,
+      "implementation_time": "2-4 months",
+      "description": "Implement countermeasures for critical attack node: compromise_communication buses"
+    },
+    {
+      "title": "Protect against compromise_communication stacks",
+      "priority": "medium",
+      "category": "attack_prevention",
+      "estimated_cost": 25000,
+      "effectiveness_score": 0.7,
+      "implementation_time": "2-4 months",
+      "description": "Implement countermeasures for critical attack node: compromise_communication stacks"
+    },
+    {
+      "title": "Protect against compromise_communication functions",
+      "priority": "medium",
+      "category": "attack_prevention",
+      "estimated_cost": 25000,
+      "effectiveness_score": 0.7,
+      "implementation_time": "2-4 months",
+      "description": "Implement countermeasures for critical attack node: compromise_communication functions"
+    }
+  ]
+}
