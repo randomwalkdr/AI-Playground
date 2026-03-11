@@ -803,18 +803,34 @@ dynamic_scenario = {
 # Create dynamic analysis model
 dynamic_model = framework.create_dynamic_analysis_model(dynamic_scenario)
 
+import concurrent.futures
+
 # Analyze threat evolution over time
 print("Dynamic Threat Landscape Analysis:")
-for month in range(1, 13):
+def analyze_and_report(month):
     month_analysis = dynamic_model.analyze_month(month)
-    print(f"\nMonth {month}:")
-    print(f"  Emerging threats: {len(month_analysis.emerging_threats)}")
-    print(f"  Threat evolution: {month_analysis.threat_evolution_rate}")
-    print(f"  Countermeasure effectiveness: {month_analysis.countermeasure_effectiveness}")
-    
-    # Analyze adaptive strategies
     adaptive_strategies = dynamic_model.get_adaptive_strategies(month)
-    print(f"  Recommended adaptations: {len(adaptive_strategies)}")
+    return month, month_analysis, adaptive_strategies
+
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    # Submit all months for parallel analysis
+    future_to_month = {executor.submit(analyze_and_report, month): month for month in range(1, 13)}
+
+    # Process results as they complete (or sort them to print in order)
+    # We'll sort by month to keep the output orderly
+    results = {}
+    for future in concurrent.futures.as_completed(future_to_month):
+        month, analysis, strategies = future.result()
+        results[month] = (analysis, strategies)
+
+# Print sorted results
+for month in sorted(results.keys()):
+    analysis, strategies = results[month]
+    print(f"\nMonth {month}:")
+    print(f"  Emerging threats: {len(analysis.emerging_threats)}")
+    print(f"  Threat evolution: {analysis.threat_evolution_rate}")
+    print(f"  Countermeasure effectiveness: {analysis.countermeasure_effectiveness}")
+    print(f"  Recommended adaptations: {len(strategies)}")
 
 # Game theory analysis for dynamic environment
 dynamic_game = framework.game_theory.create_dynamic_game_model(
