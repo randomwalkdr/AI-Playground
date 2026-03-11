@@ -665,18 +665,27 @@ for risk in safety_risks:
 adversarial_trees = [tree for tree in av_result.attack_trees 
                     if "adversarial" in tree.root_node.name.lower()]
 
+import concurrent.futures
+
 print(f"\nAdversarial Attack Analysis:")
-for tree in adversarial_trees:
-    print(f"Tree: {tree.root_node.name}")
-    
+
+def analyze_tree(tree):
     # Analyze attack success probability
     game_model = framework.game_theory.create_game_model(
         tree, attacker, defender
     )
     equilibrium = framework.game_theory.find_nash_equilibrium(game_model)
+    return tree.root_node.name, equilibrium
+
+# Run analysis in parallel for better performance
+with concurrent.futures.ThreadPoolExecutor() as executor:
+    futures = [executor.submit(analyze_tree, tree) for tree in adversarial_trees]
     
-    print(f"  Attack success probability: {equilibrium.attack_success_probability}")
-    print(f"  Recommended defense: {equilibrium.defender_strategy}")
+    for future in concurrent.futures.as_completed(futures):
+        tree_name, equilibrium = future.result()
+        print(f"Tree: {tree_name}")
+        print(f"  Attack success probability: {equilibrium.attack_success_probability}")
+        print(f"  Recommended defense: {equilibrium.defender_strategy}")
 ```
 
 ## Advanced Use Cases
