@@ -451,14 +451,19 @@ def integrate_components_seamlessly(system_definition):
         attack_trees.append(tree)
     
     # Game Theory uses both TARA and Attack Trees results
-    game_models = []
-    for tree in attack_trees:
-        game_model = framework.game_theory.create_game_model(
-            tree,
-            tara_result.threat_profiles,
-            tara_result.defender_profile
-        )
-        game_models.append(game_model)
+    import concurrent.futures
+
+    # Use ThreadPoolExecutor for concurrent model creation to improve performance
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # executor.map preserves the order of the original attack_trees list
+        game_models = list(executor.map(
+            lambda tree: framework.game_theory.create_game_model(
+                tree,
+                tara_result.threat_profiles,
+                tara_result.defender_profile
+            ),
+            attack_trees
+        ))
     
     # Integrate all results
     integrated_result = framework.integrate_results(

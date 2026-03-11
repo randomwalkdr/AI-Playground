@@ -348,6 +348,34 @@ game.configure(
 )
 ```
 
+#### `create_multiple_game_models(attack_trees, attacker, defender)`
+
+Creates multiple game theory models concurrently or in bulk for the given attack trees and player profiles, improving performance.
+
+**Parameters:**
+- `attack_trees` (list): List of AttackTree objects to model
+- `attacker` (AttackerProfile): Attacker profile
+- `defender` (DefenderProfile): Defender profile
+
+**Returns:**
+- `list`: List of GameModel objects ready for analysis
+
+**Example:**
+```python
+# Create multiple game models concurrently
+game_models = framework.game_theory.create_multiple_game_models(
+    attack_trees, attacker, defender
+)
+
+# Configure game parameters for all models
+for game in game_models:
+    game.configure(
+        game_type="sequential",
+        information_set="incomplete",
+        equilibrium_concept="nash"
+    )
+```
+
 #### `calculate_payoffs(game_model, strategies)`
 
 Calculates payoffs for different strategy combinations.
