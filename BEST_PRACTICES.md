@@ -401,6 +401,8 @@ def select_game_type(scenario):
 
 #### Multiple Equilibrium Concepts
 ```python
+import concurrent.futures
+
 # Best Practice: Use multiple equilibrium concepts for robust analysis
 def analyze_multiple_equilibria(game_model):
     equilibrium_concepts = [
@@ -411,13 +413,21 @@ def analyze_multiple_equilibria(game_model):
     ]
     
     equilibrium_results = {}
-    for concept in equilibrium_concepts:
-        try:
-            equilibrium_results[concept] = framework.game_theory.find_equilibrium(
-                game_model, concept
-            )
-        except GameTheoryAnalysisError as e:
-            print(f"Warning: Could not find {concept} equilibrium: {e.message}")
+
+    def find_eq(concept):
+        return framework.game_theory.find_equilibrium(game_model, concept)
+
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        future_to_concept = {
+            executor.submit(find_eq, concept): concept
+            for concept in equilibrium_concepts
+        }
+        for future in concurrent.futures.as_completed(future_to_concept):
+            concept = future_to_concept[future]
+            try:
+                equilibrium_results[concept] = future.result()
+            except GameTheoryAnalysisError as e:
+                print(f"Warning: Could not find {concept} equilibrium: {e.message}")
     
     return equilibrium_results
 
