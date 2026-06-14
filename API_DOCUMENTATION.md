@@ -539,9 +539,9 @@ print(f"Investment priorities: {summary.investment_priorities}")
 #### Asset
 ```python
 class Asset:
-    def __init__(self, name, type, value, location, dependencies):
+    def __init__(self, name, asset_type, value, location, dependencies):
         self.name = name
-        self.type = type  # physical, software, data, function
+        self.type = asset_type  # physical, software, data, function
         self.value = value
         self.location = location
         self.dependencies = dependencies
@@ -552,9 +552,9 @@ class Asset:
 #### Threat
 ```python
 class Threat:
-    def __init__(self, name, type, likelihood, impact, description):
+    def __init__(self, name, threat_type, likelihood, impact, description):
         self.name = name
-        self.type = type
+        self.type = threat_type
         self.likelihood = likelihood
         self.impact = impact
         self.description = description
@@ -565,9 +565,9 @@ class Threat:
 #### AttackNode
 ```python
 class AttackNode:
-    def __init__(self, name, type, prerequisites, difficulty, cost):
+    def __init__(self, name, node_type, prerequisites, difficulty, cost):
         self.name = name
-        self.type = type  # root, intermediate, leaf
+        self.type = node_type  # root, intermediate, leaf
         self.prerequisites = prerequisites
         self.difficulty = difficulty
         self.cost = cost
