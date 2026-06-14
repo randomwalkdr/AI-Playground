@@ -875,6 +875,8 @@ framework.configure_framework(config)
 ### 2. Error Handling
 
 ```python
+import logging
+
 # Best practice: Implement robust error handling
 def safe_analysis(system_definition):
     try:
@@ -888,8 +890,16 @@ def safe_analysis(system_definition):
         print(f"Asset identification failed: {e.message}")
         print(f"Missing information: {e.missing_info}")
         return None
+    except AttackTreeConstructionError as e:
+        print(f"Attack tree construction failed: {e.message}")
+        print(f"Invalid nodes: {e.invalid_nodes}")
+        return None
+    except GameTheoryAnalysisError as e:
+        print(f"Game theory analysis failed: {e.message}")
+        print(f"Model issues: {e.model_issues}")
+        return None
     except Exception as e:
-        print(f"Unexpected error: {str(e)}")
+        logging.error("Unexpected error during analysis", exc_info=True)
         return None
 
 # Use safe analysis
