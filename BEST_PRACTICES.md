@@ -80,38 +80,8 @@ framework.configure_framework(config)
 ### 3. Data Management
 
 #### Data Quality Standards
-```python
-# Best Practice: Implement data validation
-def validate_input_data(data):
-    validation_rules = {
-        "assets": {
-            "required_fields": ["name", "type", "value"],
-            "value_range": (1, 10),
-            "type_options": ["physical", "software", "data", "function"]
-        },
-        "threats": {
-            "required_fields": ["name", "likelihood", "impact"],
-            "likelihood_range": (0.1, 1.0),
-            "impact_range": (1, 10)
-        }
-    }
-    
-    for data_type, rules in validation_rules.items():
-        if data_type in data:
-            validate_data_type(data[data_type], rules)
-    
-    return True
 
-def validate_data_type(items, rules):
-    for item in items:
-        for field in rules["required_fields"]:
-            if field not in item:
-                raise ValueError(f"Missing required field: {field}")
-        
-        if "value_range" in rules:
-            if not (rules["value_range"][0] <= item.get("value", 0) <= rules["value_range"][1]):
-                raise ValueError(f"Value out of range for {item.get('name', 'unknown')}")
-```
+See [Input Data Validation](#input-data-validation) for a comprehensive implementation.
 
 #### Data Sources and Validation
 - **Primary Sources**: Use authoritative sources (CVE, MITRE, industry reports)
@@ -551,6 +521,35 @@ def validate_input_data(data):
             validation_results.extend(result)
     
     return validation_results
+
+def validate_data_against_schema(items, schema):
+    results = []
+    for item in items:
+        # Check required fields
+        for field in schema.get("required_fields", []):
+            if field not in item:
+                results.append(f"Missing required field: {field} in {item.get('name', 'unknown')}")
+
+        # Check constraints based on type
+        if "value_constraints" in schema:
+            min_val = schema["value_constraints"].get("min", 0)
+            max_val = schema["value_constraints"].get("max", float('inf'))
+            if not (min_val <= item.get("value", 0) <= max_val):
+                results.append(f"Value out of range for {item.get('name', 'unknown')}")
+
+        if "likelihood_constraints" in schema:
+            min_val = schema["likelihood_constraints"].get("min", 0.0)
+            max_val = schema["likelihood_constraints"].get("max", 1.0)
+            if not (min_val <= item.get("likelihood", 0.0) <= max_val):
+                results.append(f"Likelihood out of range for {item.get('name', 'unknown')}")
+
+        if "impact_constraints" in schema:
+            min_val = schema["impact_constraints"].get("min", 0)
+            max_val = schema["impact_constraints"].get("max", float('inf'))
+            if not (min_val <= item.get("impact", 0) <= max_val):
+                results.append(f"Impact out of range for {item.get('name', 'unknown')}")
+
+    return results
 
 # Avoid: Using unvalidated input data
 ```
